@@ -10,14 +10,7 @@ env:
 
 install:
   - echo $CUDA
-  - cd travis-ci\\cuda-$CUDA
-  - choco pack
-  - |-
-    choco install cuda --verbose -s .
-    if %errorlevel% equ 1 (
-      powershell -Command Get-Content -Tail 100 C:\\ProgramData\\chocolatey\\logs\\chocolatey.log
-      exit /b %errorlevel%
-    )
+  - powershell -noexit "& 'travis-ci\\install-cuda.ps1'"
 
 script:
   - powershell -Command Exit 0
