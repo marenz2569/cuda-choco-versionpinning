@@ -1,0 +1,23 @@
+language: cpp
+
+os: windows
+
+env:
+  jobs:
+    - CUDA=6.5
+    - CUDA=8.0
+    - CUDA=11.0
+
+install:
+  - echo $CUDA
+  - cd travis-ci\\cuda-$CUDA
+  - choco pack
+  - |-
+    choco install cuda --verbose -s .
+    if errorlevel 1 (
+      powershell -Command Get-Content -Tail 100 C:\\ProgramData\\chocolatey\\logs\\chocolatey.log
+      exit /b %errorlevel%
+    )
+
+script:
+  - powershell -Command Exit 0
