@@ -10,7 +10,8 @@ env:
 
 install:
   - echo $CUDA
-  - powershell -noexit "& 'travis-ci\\install-cuda.ps1'"
+  - powershell -Command Set-ExecutionPolicy unrestricted
+  - powershell -NonInteractive "& 'travis-ci\\install-cuda.ps1' -Version '$CUDA'"
 
 script:
   - powershell -Command Exit 0
