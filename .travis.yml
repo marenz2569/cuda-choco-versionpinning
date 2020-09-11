@@ -14,7 +14,7 @@ install:
   - choco pack
   - |-
     choco install cuda --verbose -s .
-    if errorlevel 1 (
+    if %errorlevel% equ 1 (
       powershell -Command Get-Content -Tail 100 C:\\ProgramData\\chocolatey\\logs\\chocolatey.log
       exit /b %errorlevel%
     )
