@@ -11,8 +11,7 @@ env:
 install:
   - echo $CUDA
   - powershell -Command Set-ExecutionPolicy unrestricted
-  - choco install cuda
-  #- powershell -NonInteractive "& 'travis-ci\\install-cuda.ps1' -Version '$CUDA'"
+  - powershell -NonInteractive "& 'travis-ci\\install-cuda.ps1' -Version '$CUDA'"
 
 script:
   - powershell -Command Exit 0
