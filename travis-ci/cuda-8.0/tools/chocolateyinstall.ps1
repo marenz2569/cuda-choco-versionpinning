@@ -7,7 +7,7 @@ $packageArgs = @{
   checksum     = 'fc65652237548ad4d7b8a8d0417b4fc16daff1672ea1c8a688560394f9f0356f'
   checksumType = 'sha256'
 
-  silentArgs   = '/s'
+  silentArgs   = '/s nvcc_8.0 cublas_8.0 cublas_dev_8.0 cudart_8.0'
 }
 
 $packagePatchArgs = @{
